@@ -9,11 +9,14 @@ let comment_id = document.getElementsByTagName("form")[0]
 
 //other variables
 let counter = 0
+let paused = false
 
 //As a user, i should see the timer increment every second once the page has loaded
 let timer = setInterval(function() {
-    counter_id.innerHTML = counter;
-    counter += 1;
+    if(!paused){
+        counter_id.innerHTML = counter;
+        counter += 1;
+    }
 },1000)
   
 //As a user, i can manually increment and decrement the counter as i like
@@ -37,14 +40,23 @@ heart_id.addEventListener("click", function(){
         li.innerHTML = `${counter} have this many likes:1`
         like.appendChild(li)
       }
-      else {
+    else {
         let li = document.getElementById(`li${counter}`)
         let splitted = parseInt(li.innerHTML.split(":")[1]) + 1
         li.innerHTML = `${counter} have this many likes:${splitted}`
         like.appendChild(li)
-      }
+    }
 })
 
 //As a user I can pause the game, which should disable all buttons except the pause button, which should now show the text 'resume'
-
+pause_id.addEventListener("click", function(){
+    if (paused){
+        pause_id.innerHTML = "pause"
+        paused = false
+    }
+    else{
+        pause_id.innerHTML = "resume"
+        paused = true
+    }
+})
 // As a user I can leave comments on my gameplay, such as "Wow, what a fun game this is"
