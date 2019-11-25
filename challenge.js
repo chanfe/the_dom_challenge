@@ -17,6 +17,15 @@ let timer = setInterval(function() {
 },1000)
   
 //As a user, i can manually increment and decrement the counter as i like
+plus_id.addEventListener("click", function(){
+    counter += 1;
+    counter_id.innerHTML = parseInt(counter_id.innerHTML) + 1;
+})
+
+minus_id.addEventListener("click", function(){
+    counter -= 1;
+    counter_id.innerHTML = parseInt(counter_id.innerHTML) - 1;
+})
 
 //As a user, i can like an individual number of the counter. I should see the appropriate number of likes associated with that particular number
 
