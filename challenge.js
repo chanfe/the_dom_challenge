@@ -14,8 +14,8 @@ let paused = false;
 //As a user, i should see the timer increment every second once the page has loaded
 let timer = setInterval(function() {
     if(!paused){
-        counter_id.innerHTML = counter;
         counter += 1;
+        counter_id.innerHTML = counter;
     }
 },1000)
   
@@ -65,7 +65,7 @@ comment_id.addEventListener("click", function(event){
     let comments = document.querySelector(".comments");
     let p = document.createElement("p");
     let textbox = document.querySelector("#comment_text")
-    
+
     p.innerHTML = textbox.value;
     textbox.value = "";
     comments.appendChild(p);
