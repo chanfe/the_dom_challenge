@@ -28,6 +28,22 @@ minus_id.addEventListener("click", function(){
 })
 
 //As a user, i can like an individual number of the counter. I should see the appropriate number of likes associated with that particular number
+heart_id.addEventListener("click", function(){
+    let like = document.querySelector(".likes");
+
+    if(document.getElementById(`li${counter}`) == null){
+        let li = document.createElement("li");
+        li.setAttribute("id", `li${counter}`)
+        li.innerHTML = `${counter} have this many likes:1`
+        like.appendChild(li)
+      }
+      else {
+        let li = document.getElementById(`li${counter}`)
+        let splitted = parseInt(li.innerHTML.split(":")[1]) + 1
+        li.innerHTML = `${counter} have this many likes:${splitted}`
+        like.appendChild(li)
+      }
+})
 
 //As a user I can pause the game, which should disable all buttons except the pause button, which should now show the text 'resume'
 
